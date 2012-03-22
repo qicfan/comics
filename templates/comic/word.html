@@ -1,0 +1,67 @@
+{% extends "comic/base.html" %}
+{% load filters %}
+{% block keywords %}{{word_id}}, 漫画{% endblock %}
+{% block description %}字母索引为{{word_id}}的漫画列表，共有{{comiccount}}本相关漫画。{% endblock %}
+{% block title %} 字母索引{{word_id}}漫画列表-漫漫翻-在线动漫社区 {% endblock %}
+{% block content %}
+    <div class="main">
+    	<div class="main_nav">您的当前位置：<a href="/">漫漫翻</a> - <a href="/word/{{word_id}}_{{current_page}}/">{{word_id}}</a></div>
+        <div class="word_list">
+            <div><a href="/word/A_1/">A</a></div>
+            <div><a href="/word/B_1/">B</a></div>
+            <div><a href="/word/C_1/">C</a></div>
+            <div><a href="/word/D_1/">D</a></div>
+            <div><a href="/word/E_1/">E</a></div>
+            <div><a href="/word/F_1/">F</a></div>
+            <div><a href="/word/G_1/">G</a></div>
+            <div><a href="/word/H_1/">H</a></div>
+            <div><a href="/word/I_1/">I</a></div>
+            <div><a href="/word/J_1/">J</a></div>
+            <div><a href="/word/K_1/">K</a></div>
+            <div><a href="/word/L_1/">L</a></div>
+            <div><a href="/word/M_1/">M</a></div>
+            <div><a href="/word/N_1/">N</a></div>
+            <div><a href="/word/O_1/">O</a></div>
+            <div><a href="/word/P_1/">P</a></div>
+            <div><a href="/word/Q_1/">Q</a></div>
+            <div><a href="/word/R_1/">R</a></div>
+            <div><a href="/word/S_1/">S</a></div>
+            <div><a href="/word/T_1/">T</a></div>
+            <div><a href="/word/U_1/">U</a></div>
+            <div><a href="/word/V_1/">V</a></div>
+            <div><a href="/word/W_1/">W</a></div>
+            <div><a href="/word/X_1/">X</a></div>
+            <div><a href="/word/Y_1/">Y</a></div>
+            <div><a href="/word/Z_1/">Z</a></div>
+        </div>
+        <div class="clear"></div>
+        <div class="word_comic_list">
+            {% for item in comics %}
+            <div class="word_comic_item">
+                <div class="img"><a href="{{item.get_absolute_url}}"><img src="/media/{{item.photo}}" width="120" height="168" /></a></div>
+                <div>
+                    <p>
+                        <a href="{{item.get_absolute_url}}">{{item.title}}</a>
+                    </p>
+                    {% autoescape off %}
+                    <p>
+                        [{{item.status|STATUS_CHOICE}}]
+                    </p>
+                    
+                    <p>
+                        {{item.description|truncatehanzi:":50"}}
+                    </p>
+                    <p>
+                        [作者：{% for i in item.author.all %}<a href="{{i.get_absolute_url}}">{{i.title}}</a>, {% endfor %}]
+                    </p>
+                    {% endautoescape %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="paginator">
+		{% if is_paginated %}{% if has_previous %}<a href="/word/{{word_id}}_{{ previous_page }}">上一页</a>{% endif %}{% for p in page_numbers %}{% ifequal p current_page %}<a class="yes">{{ p }}</a>{% else %}<a class="no" href="/word/{{word_id}}_{{ p }}">{{ p }}</a>{% endifequal %}{% endfor %}{% if has_next %}<a href="/word/{{word_id}}_{{ next_page }}">下一页</a>{% else %}{% endif %}{% ifequal current_page pages %}{% else %}{% endifequal %}&nbsp;&nbsp;当前页：{{ current_page }}/{{ pages }}&nbsp;&nbsp;{% endif %}
+        </div>
+	</div>
+{% endblock %}

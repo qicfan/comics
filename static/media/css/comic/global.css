@@ -1,0 +1,136 @@
+body { text-align:center; font-size:12px; margin:0px; font-family:"微软雅黑"; background:#6eb555;}
+.back {background:#FFFFFF; width:1001px; margin:0px auto;}
+a { text-decoration:none;}
+a:hover { text-decoration:underline;}
+a:visited { text-decoration:none;}
+.colorh { color:#000;}
+.colorr { color:#F00;}
+.colorg { color:#3b9c33;}
+.colorb { color:#2399fc;}
+.colorb2 { color:#84dddc;}
+.colorhui { color:#41404a;}
+.colorhui:hover {color:#b90c20;}
+img { border:0px;}
+.head {width:1001px; margin:0px auto; }
+.nav { height:52px;}
+.nav div { float:left;}
+.nav1 { width:45px; height:52px; background:url(/media/img/comic_page/1.jpg);}
+.nav2 { background:#cdf499; width:947px; height:36px; margin:9px 0px 0px 0px;}
+.nav3 { width:8px; height:36px; background:url(/media/img/comic_page/2.jpg); margin:9px 0px 0px 0px;}
+.category { font-size:14px; margin:9px 0px 0px 0px; > margin:9px 0px 0px 0px; color:#4b9544;}
+.category a { color:#4b9544;}
+.category a:hover {color:#ff0012; text-decoration:none;}
+.category span { margin-right:35px; > margin-right:25px; letter-spacing:2px; font-weight:bold;}
+.search { margin:4px 0px 0px 0px; > margin:4px 0px 0px 0px;}
+.index_search_input { background:url(/media/img/comic_page/3.png) top;width:157px; height:16px; padding-top:3px; border:0px; text-align:center; color:#579957; font-size:12px; font-weight:bold;}
+.index_search_button { background:url(/media/img/comic_page/4.jpg); width:13px; height:20px; border:0px; position:relative; top:4px; > top:0px;  }
+.ad1 { margin:10px 0px 10px 0px;}
+.main {width:1001px; margin:10px auto; text-align:left; }
+.main_read { text-align:left; }
+.left { width:605px; float:left;margin-left:55px;>margin-left:25px;}
+.right { width:265px; float:left; margin-left:40px;}
+.box_title { font-size:16px; border-bottom:1px solid #eef7d5; width:100%; padding:0px 0px 8px 0px; font-weight:bold; color:#2d2f2c; margin-bottom:10px;}
+.box_title span { margin-left:20px; letter-spacing:10px;}
+.box_title li { list-style:none; margin-left:20px; > margin-left:-5px; font-size:14px;}
+.hot_comic { margin:20px 0px 0px 20px; width:560px; height:170px; border-bottom:1px solid #eef7d5; padding-bottom:10px; clear:both;}
+.hot_comic_noborder { margin:20px 0px 0px 14px; width:560px; height:170px; padding-bottom:10px; clear:both; }
+.hot_comic_photo { float:left; width:120px; height:160px; margin:0px 40px 0px 0px;}
+.hot_comic_info { float:left; width:400px;}
+.comic_info_title { font-size:14px; font-weight:bold; margin-top:10px;}
+.comic_info_red { color:#F00; font-size:12px;}
+.comic_info_description {}
+.hot_comment { margin:10px 0px 20px 20px;}
+.comment_orther { margin:0px 0px 6px 0px; }
+.comment_date {color:#7e7e7e;}
+.comment_content_index {margin:0px 0px 10px 0px; text-indent:24px;}
+.clear { clear:both; height:0px; font-size:0px;}
+.hot_comic_png { position:relative; top:-5px;}
+.laba_comic_png { position:relative; top:10px; margin:0px 10px 0px 0px;}
+.top_comic_png { position:relative; top:-6px;}
+
+.zhichi_comic_list { margin:0px 0px 0px 30px; height:24px; width:220px;}
+.zhichi_comic_list1 { margin:0px 0px 0px 30px; height:28px; width:220px;}
+.zhichi_comic_list_name { float:left; width:120px;}
+.zhichi_comic_list_count { float:right; width:100px; text-align:right;}
+.paihang_list { margin:0px 0px 0px 20px; }
+.paihang_list span { float:left; width:210px; > width:200px;list-style:none; display:block; height:20px; border-bottom:1px dotted #000; margin-bottom:6px; font-size:12px;}
+.paihang_list .xuhao { display:block; width:10px; height:10px;  border-bottom: none; background:#7e7e7e; color:#FFF; float:left; margin-right:4px; margin-top:4px; font-size:8px;text-align:center;}
+.radom_comic {}
+.radom_comic div {  float:left; width:60px; height:120px; margin:0px 14px 8px 14px; > margin:0px 10px 10px 10px; text-align:center;}
+.radom_comic div span { margin-top:8px; display:block; line-height:16px;}
+
+.foot { width:1001px; margin:10px auto 0px auto; text-align:center; clear:both;  border-top:1px solid #eef7d5; padding-top:10px;}
+.foot_read { width:1001px; margin:10px auto 0px auto; text-align:center; color:#FFFFFF; clear:both;  }
+.foot span {display:block; margin:10px 0px 4px 0px;}
+
+.main_nav {margin:10px 0px 20px 45px; > margin:10px 0px 20px 45px; }
+.main_nav_read {color:#FFFFFF; font-size:14px; background:#478c2f; padding:4px;}
+.main_nav_read a {text-decoration:none; color:#FFFFFF;}
+.main_nav_read a:hover { text-decoration:underline;}
+.main_nav_read a:visited {text-decoration:none; color:#FFFFFF;}
+.book_intro { margin:10px 0px 20px 45px; > margin:10px 0px 20px 45px;}
+.book_info { width:420px; float:left; margin:0px 20px 0px 0px; > margin:0px 20px 0px 0px; }
+.book_chapter { width:480px; float:left; height:400px; overflow:hidden; overflow-y:auto;  margin:0px 0px 40px 0px;}
+.book_chapter a { display:block; float:left; margin:0px 5px 10px 5px; width:130px;}
+.book_info_left { width:230px; float:left; margin:0px 0px 0px 20px; }
+.book_info_left span {display:block; margin:0px 0px 25px 0px;}
+.book_info_right { width:120px; float:right; margin:0px 20px 0px 0px;}
+.up { display:block; float:left; margin-right:30px; background:url(/media/img/comic_page/6.png) no-repeat; padding:5px 0px 0px 30px; height:23px;}
+.down { display:block; float:left; background:url(/media/img/comic_page/7.png) no-repeat; padding:5px 0px 0px 30px; height:23px;}
+.book_name {}
+.book_pic { display:block; margin:0px 0px 14px 0px; text-align:center;}
+.book_contr { display:block; text-align:center;}
+.book_desription { text-indent:24px; margin:10px 0px 0px 0px; line-height:19px; text-align:left;}
+
+.comment_form {border: solid 1px #bdbebb; border-left:none; border-right:none; background:#f4f8e6; text-align:center;}
+.comment_form_title { background:#eef0e6; height:25px; color:#588c4b; font-size:14px; font-weight:bold; padding:5px 0px 0px 20px; text-align:left;}
+.comment_form_title .t { display:block; width:200px; float:left;}
+.comment_form_title .c { display:block; width:100px; float:right; margin:0px 20px 0px 0px; font-size:12px; font-weight:normal;}
+.comment_content {width:96%;height:60px; margin:10px 0px 10px 0px;}
+.comment_button { margin:0px 20px 10px 0px; text-align:right; color:#588c4b;}
+.comment_text { border:1px solid #ccd1bf; color:#7d816f; margin:0px 20px 0px 0px; width:100px; }
+.comment_submit { border:1px solid #ccd1bf; background:#d9decb; color:#7d816f; padding:4px 15px 4px 15px;}
+.pagelimit { margin:10px 0px 0px 0px;}
+.comment_list { margin:10px 0px 0px 0px;}
+.comment_item { border-top:1px solid #dfdfdf; padding:10px 0px 0px 10px; color:#555555; margin:20px 0px 10px 0px ;}
+.comment_o {}
+.comment_s { text-indent:24px;}
+
+.pagenav { text-align:center; }
+.page_redirect { text-align:center;}
+.page_limit { height:15px; padding:5px 0px 0px 0px; color:#FFFFFF;}
+.page_limit a {color:#FFFFFF; text-decoration:none;}
+.page_limit a:hover {color:#FFFFFF; text-decoration:underline;}
+.page_limit a:visited {color:#FFFFFF; text-decoration:none;}
+.page_chapter {  width:300px; margin:0px 50px 0px 0px; }
+.page_fanye {  width:300px;}
+.page_pic { width:300px;}
+.pic_read { height:620px; overflow:hidden; overflow-y:auto; text-align:center; margin:10px auto 0px auto;
+SCROLLBAR-FACE-COLOR: #85d16b; 
+SCROLLBAR-SHADOW-COLOR: #85d16b; 
+SCROLLBAR-HIGHLIGHT-COLOR: #85d16b; 
+SCROLLBAR-3DLIGHT-COLOR: #FFFFFF; 
+SCROLLBAR-DARKSHADOW-COLOR: #FFFFFF; 
+SCROLLBAR-TRACK-COLOR:#FFFFFF; 
+SCROLLBAR-ARROW-COLOR: #FFFFFF;
+}
+.word_list { clear:both; margin:0px 0px 30px 4px; height:45px;}
+.word_list div { float:left; border-left:1px solid #eef7d5; border-bottom:1px solid #eef7d5; padding:20px 13px 10px 13px; font-size:16px; font-weight:bold;}
+.word_list div a { color:#9cc168; text-decoration:none;}
+.word_list div a:hover {color:#ff0012; text-decoration:none;}
+.word_list div a:visited {color:#9cc168; text-decoration:none;}
+.word_comic_list {}
+.word_comic_item { float:left; width:290px; height:165px; margin:20px 10px 20px 10px; padding:0px 0px 40px 20px; border-left:1px solid #eef7d5; border-bottom:1px solid #eef7d5;}
+.word_comic_item .img { float:left; margin:0px 20px 0px 0px; height:180px;}
+.word_comic_item p { margin:0px 0px 8px 0px;}
+.paginator {}
+.paginator a { display:block; padding:2px 6px 2px 6px; margin:0px 6px 0px 6px; float:left; border:#e0e0e0 1px solid; background:#FFFFFF;}
+.paginator .no { background:#FFFFFF;}
+.paginator .no:hover { background:#f1f1f1;}
+.paginator .yes {background:#f1f1f1; color:#ff0018;}
+
+.author_box {margin:0px 0px 0px 45px;}
+.author_word { border-bottom:#dad7d7 1px solid;}
+.author_word span {display:block; width:100px; background:#dad7d7; text-align:center; color:#3724f6; font-size:16px;}
+.author_list { margin:10px 0px 40px 100px; line-height:22px;}
+

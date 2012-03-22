@@ -1,0 +1,69 @@
+{% extends "comic/base.html" %}
+{% load filters %}
+{% block content %}
+    <div class="main">
+    	<div class="left">
+        	<div class="box_title">
+            	<span>热门漫画<img src="/media/img/comic_page/hot.png" class="hot_comic_png" alt="热门漫画" /></span>
+            </div>
+			{% for item in hot_comic %}
+            <div class="hot_comic">
+            	<div class="hot_comic_photo"><img src="/media/{{item.photo}}" width="120" height="168" /></div>
+                <div class="hot_comic_info">
+                	<p class="comic_info_title"><a href="{{item.get_absolute_url}}" class="colorh">{{item.title}}</a>&nbsp;&nbsp;<span class="comic_info_red"><<a href="{{item.get_lasted_chapter.get_absolute_url}}" class="colorr">更新至{{item.get_lasted_chapter.title}}</a>></span></p>
+                    <p class="comic_info_description">{{item.description|truncatehanzi:":150"}}</p>
+                    <p class="comic_info_red">[<a href="{{item.get_absolute_url}}" class="colorr">点击阅读</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="{{item.get_absolute_url}}" class="colorr">查看评论</a>]</p>
+                </div>
+            </div>
+			{% endfor %}
+            <br />
+            <div class="box_title">
+            	<span><img src="/media/img/comic_page/laba.png" class="laba_comic_png" alt="最热漫画评论" />最热漫评</span>
+            </div>
+			{% for item in comments %}
+            <div class="hot_comment">
+                <div class="comment_orther">
+                    <span class="comment_name"><a href="/comic/{{item.typeid}}#comment_{{item.id}}" class="colorb">{{item.nickname}}</a></span> <span class="comment_title">评论：<a href="/comic/{{item.typeid}}/">《{{item.get_comic_title}}》</a></span>
+                    <span class="comment_date">({{item.adddate|timestamp}})</span>
+                </div>
+                <div class="comment_content_index">{{item.content}}</div>
+            </div>
+			{% endfor %}
+        </div>
+        <div class="right">
+        	<div class="box_title">
+            	<span>最受关注<img src="/media/img/comic_page/top.png" class="top_comic_png" alt="最受关注的漫画" /></span>
+            </div>
+            <div class="zhichi_comic_list1">
+            	<span class="zhichi_comic_list_name colorg">漫画名称</span>
+                <span class="zhichi_comic_list_count colorg">支持总数</span>
+            </div>
+			{% for item in top_comic %}
+            <div class="zhichi_comic_list">
+            	<span class="zhichi_comic_list_name"><a href="{{item.get_absolute_url}}" class="colorb">{{item.title}}</a></span>
+                <span class="zhichi_comic_list_count">{{item.up}}</span>
+            </div>
+			{% endfor %}
+            <br />
+            <div class="box_title">
+        		<li><b class="colorr">24</b>小时最热排行</li>
+        	</div>
+            <div class="paihang_list">
+			{% for item in hit_comic %}
+            	<span class="xuhao">{{i}}</span><span> <a href="{{item.get_absolute_url}}" class="colorh">{{item.title}}</a></span><br clear="all" />
+			{% endfor %}
+            </div>
+            <br />
+            <div class="box_title">
+        		<li>随便看看</li>
+        	</div>
+            <div class="radom_comic">
+				{% for item in random_comic %}
+            	<div>
+                	<a href="{{item.get_absolute_url}}" class="colorr"><img src="/media/{{item.photo}}" width="60" height="80" /><br /><span>{{item.title}}</span></a>
+                </div>
+				{% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

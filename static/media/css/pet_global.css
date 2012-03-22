@@ -1,0 +1,7 @@
+body { text-align:center; font-size:12px; margin:0px; padding:0px;}
+img { border:0px;}
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+a:visited { text-decoration:none; }
+.albums { width:120px; height:150px; float:left; margin-right:30px;}
+.albums img { width:120px; height:120px;}

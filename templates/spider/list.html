@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Test</title>
+</head>
+<style>
+#process {width:1002px; height:20px; background:#FFFFFF; border:1px #000000 solid;}
+#process_div {background:green; height:20px; width:0px;}
+</style>
+<body>
+<table>
+
+</table>
+<div id="result"></div>
+<div id="process">
+<div id="process_div"></div>
+</div>
+<input type="button" onclick="fetch()" value="开始请求" />
+<form id="jsform"><textarea id="jsbox" name="jsbox" style="width:800px; height:500px;" /></textarea>
+<script type="text/javascript" src="http://python.comicyu.com/media/js/prototype.js"></script>
+<script type="text/javascript">
+var list = [{% for item in chapter%}["{{item.comic.pk}}", "{{item.order}}"],{% endfor %}];
+function fetch() {
+	fetchpic();
+}
+i = 0;
+comic_id = list[i][0];
+chapter_id = list[i][1];
+suc = 0;
+function fetchpic() {
+	var url = "/fetchjs/1/" + comic_id + '/' + chapter_id + '/';
+	new Ajax.Request(url, {
+        method: 'get',
+		evalScript: true,
+		onLoading: function() {
+		},
+        onSuccess: function(req){
+            rs = req.responseText;
+			if (rs == "flase") {
+				i++;
+				if (i < list.length) {
+					comic_id = list[i][0];
+					chapter_id = list[i][1];
+					fetchpic()
+				} else {
+					$("result").innerHTML += "完成<br />";
+				}
+			}
+			eval(rs);
+			// 将解析后的结果传递给服务器
+			parseJs(1, comic_id, chapter_id);
+			return false;
+        }
+    });
+}
+
+function parseJs() {
+	js = $("jsbox").value;
+	var url = "/parsejs/1/" + comic_id + '/' + chapter_id + '/';
+	new Ajax.Request(url, {
+        method: 'post',
+        parameters: {'js':js},
+        onSuccess: function(req){
+            rs = req.responseText;
+			if (rs == 'true') {
+				suc ++;
+				$("result").innerHTML = suc + "成功，总计"+ list.length+"，最后ID："+chapter_id+"<br />";
+				bf = (suc / list.length) * 1000
+				$("process_div").style.width=bf + "px";
+				i++;
+				if (i < list.length) {
+					comic_id = list[i][0];
+					chapter_id = list[i][1];
+					fetchpic()
+				} else {
+					$("result").innerHTML += "完成<br />";
+				}
+			} else {
+				$("result").innerHTML += rs
+			}
+			return false;
+        }
+    });
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "comic/base.html" %}
+{% load filters %}
+{% block keywords %}{{keyword}}, 漫画{% endblock %}
+{% block description %}关键字为{{categorys.title}}的漫画搜索列表，共有{{comics.count}}本相关漫画。{% endblock %}
+{% block title %} {{keyword}} 的搜索结果-漫画列表-漫漫翻-在线动漫社区 {% endblock %}
+{% block content %}    
+    <div class="main">
+    	<div class="main_nav">您的当前位置：<a href="/">漫漫翻</a> - 关键字 "<strong>{{keyword}}</strong>" 的搜索结果，共{{comics.count}}本</div>
+        <div class="word_comic_list">
+            {% for item in comics %}
+            <div class="word_comic_item">
+                <div class="img"><a href="{{item.get_absolute_url}}"><img src="/media/{{item.photo}}" width="120" height="168" /></a></div>
+                <div>
+                    <p>
+                        <a href="{{item.get_absolute_url}}">{{item.title}}</a>
+                    </p>
+                    {% autoescape off %}
+                    <p>
+                        [{{item.status|STATUS_CHOICE}}]
+                    </p>
+                    
+                    <p>
+                        {{item.description|truncatehanzi:":50"}}
+                    </p>
+                    <p>
+                        [作者：{{item.author}}]
+                    </p>
+                    {% endautoescape %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+		<div class="clear"></div>
+        <div class="paginator">
+		{% if is_paginated %}
+            {% ifequal current_page 1 %}
+            {% else %} 
+			
+            {% endifequal %}
+            {% if has_previous %} <a href="/search/?keyword={{keyword}}&page={{ previous_page }}">上一页</a>
+            {% else %}
+            {% endif %}
+            {% for p in page_numbers %}
+				{% ifequal current_page p %}
+                <a class="yes">{{ p }}</a>
+				{% else %}
+				<a class="no" href="/search/?keyword={{keyword}}&page={{ p }}">{{ p }}</a>
+				{% endifequal %}
+            {% endfor %}
+            {% if has_next %}<a href="/search/?keyword={{keyword}}&page={{ next_page }}">下一页</a>
+            {% else %}
+            {% endif %}
+            {% ifequal current_page pages %}
+            {% else %} 
+            {% endifequal %}
+            &nbsp;&nbsp;
+            当前页：{{ current_page }}/{{ pages }}
+            &nbsp;&nbsp;
+         {% endif %}
+        </div>
+    </div>
+{% endblock %}

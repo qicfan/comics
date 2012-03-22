@@ -1,0 +1,49 @@
+#pagel { margin-top:5px; border-top:1px solid #5ea427; padding-top:10px;}
+.p_current { text-align:center; height:14px; padding:2px 4px 2px 4px; float: left; margin-right:5px; font-weight:bold; color:#5ea427;}
+.p_link:link {text-decoration:none; height:14px; padding:2px 4px 2px 4px; float:left; display:block; border:1px solid #999999; margin-right:5px;}
+.p_link:hover { text-decoration:none;  background:#d4f09b; color:#000000;}
+.p_link:visited {text-decoration:none; height:14px; padding:2px 4px 2px 4px; float:left; display:block; border:1px solid #999999; margin-right:5px;}
+.cm_level { color:#000; border:6px solid #cccccc; padding:5px; position:absolute; left:0px; top:0px; background:#FFF; min-width:200px; z-index:9999; text-align:right;}
+.cm_level_menu { cursor:move; text-align:left; font-weight:bold; font-size:14px; position:relative;}
+.cm_level_content { text-align:left;}
+.cm_level_close { background:url(http://homes.comicyu.com/Template/Default/images/close.png); width:20px; height:20px; display:block; text-decoration:none;}
+.cm_level_close:hover { background:url(http://homes.comicyu.com/Template/Default/images/close_cur.png); width:20px; height:20px; display:block; text-decoration:none;}
+.cm_level_menu span { position:absolute; right:0px;}
+.cm_maskplayer { filter:Alpha(opacity=30); opacity: 0.30; background:#000; position:absolute; top:1px; left:1px; z-index:98;}
+.cm_process { background:url(http://homes.comicyu.com/Template/Default/images/loading.gif) no-repeat; width:190px; height:14px; position:absolute; z-index:99; padding-top:18px;}
+.cm_tip { position:absolute; border:1px solid #F00; padding:10px; z-index:100; background:#b61610; width:169px; color:#FFF;} 
+
+.comment_box { border-top: 1px solid #DFDFDF; padding:10px 20px 0px 20px; margin:10px 0px 0px 50px; width:600px;}
+.comment_box .comment_add {border-bottom: 1px solid #DFDFDF; margin-bottom:10px; clear:both;}
+.comment_box .comment_list {border-bottom: 1px solid #DFDFDF; padding:10px 10px 10px 10px; margin-top:10px; clear:both; }
+.comment_box .comment_list img { float:left; margin-right:10px;}
+.comment_box .comment_list .comment_c {}
+.comment_box .comment_list .comment_c .comment_list_title {}
+.comment_box .comment_list .comment_c .comment_list_title span { float:right;}
+.comment_box .comment_list .comment_c .comment_list_content { color:#FFF;}
+.comment_box .comment_list .comment_list_reply { clear:both; margin-left:42px; margin-top:10px;}
+.comment_box .comment_list .comment_list_reply .comment_list_reply_title { background:#DFDFDF; padding:2px;}
+.comment_box .comment_list .comment_list_reply .comment_list_reply_title span { float:right;}
+.comment_box .comment_list .comment_list_reply .comment_list_reply_title a { color:#FFFFFF;}
+.comment_box .comment_list .comment_list_reply .comment_list_reply_content { margin-left:20px; padding:4px; color:#FFF;}
+
+.photo_name { font-size:12px; width:600px; margin:4px 0px 0px 20px; text-align:center;}
+.photo_description { font-size:12px; margin:4px 0px 0px 20px; width:600px;}
+.photo_date { color:#EAEAEA;}
+
+.share_item { margin:10px 0px 0px 0px; color:#000;}
+.share_member_avatar { float:left; margin:10px 2px 0px 0px; float:left; width:50px;}
+.share_info { float:left; width:445px;}
+.share_info_my { width:520px;}
+.share_info_head { height:20px; background:#F7F7F7; padding:10px 0px 10px 10px; border-top:#005EAC solid 1px;}
+.share_info_head span { float:right; margin-right:10px;}
+.share_info_content { margin:10px 0px 0px 0px;}
+.share_info_video { background:url(http://homes.comicyu.com/Template/Default/Images/p_bg.png); width:120px; height:90px; float:left; position:relative; margin-right:10px; cursor:pointer; z-index:1;}
+.share_info_video_play { width:460px; height:330px; z-index:1;}
+.share_info_video span { background:url(http://homes.comicyu.com/Template/Default/Images/playvideo_btn.png); width:38px; height:28px; display:block; position:absolute; left:40px; top:29px; z-index:1;}
+.share_info_content_title {  margin:0px 10px 0px 10px; font-size:14px; font-weight:bold;}
+.share_info_content_content {  margin:6px 10px 0px 10px;}
+.share_info_description { margin:6px 0px 0px 10px;}
+
+.share_info_music { background:url(http://homes.comicyu.com/Template/Default/Images/playmusic.png); width:102px; height:29px; clear:both; cursor:pointer; margin:10px 0px 10px 10px;}
+.share_info_music_play { width:300px; height:25px; clear:both; margin:10px 0px 10px 10px;}

@@ -1,0 +1,72 @@
+{% extends "comic/base.html" %}
+{% load filters %}
+{% block title %} {{comics.title}}-{{author1}}-{{comics.title}}章节列表-{{comics.title}}最新更新-漫漫翻-在线动漫社区 {% endblock %}
+{% block keywords %}{{comics.title}},{{author1}}, {{last_chapter.title}}{% endblock %}
+{% block description %}{{comics.title}}相关：作者:{{author1}} 更新至:《{{last_chapter.title}}》 简介:{{comics.description|truncatehanzi:":100"}}{% endblock %}" />
+{% block content %}
+    <div class="main">
+    	<div class="main_nav">您的当前位置：<a href="/">漫漫翻</a> - <a href="{{comics.get_absolute_url}}">《{{comics.title}}》</a></div>
+		<div class="book_intro">
+			<div class="book_info">
+				<div class="book_info_left">
+					{% autoescape off %}
+					<span class="book_name">书　　名：《{{comics.title}}》</span>
+					<span class="book_author">作　　者：{{author}}</span>
+					<span class="book_author">分类：{{category}}</span>
+					<span class="book_hit">总点击数：{{comics.hit}}</span>
+					
+					<span class="book_hit">完结状态：{{comics.status|STATUS_CHOICE}}</span>
+					{% endautoescape %}
+					<span class="book_up"><a href="#" class="colorr up">我要推荐</a> <a href="#" class="colorr down">我要踩扁</a></span>
+				</div>
+				<div class="book_info_right">
+					<span class="book_pic"><img src="/media/{{comics.photo}}" width="120" height="168" /></span>
+					<span class="book_contr"><!-- SHIBABANG SHARE BEGIN -->
+<script language="javascript">
+var sbb_uid = 'qicfan';
+var sbb_myservices = {"qicfan999-qicfan": "人人网"}; 
+var sbb_brand_title = 'manmanfan';
+var sbb_addthis_options = "favorites,qicfan999-qicfan,facebook,google,diigo,qq,baidu,more";
+</script>
+<a href="http://www.shibabang.com/addthis/bookmark.html" onmouseOver="javascript:sbb_addthis_open(this,'[URL]','[TITLE]');" onmouseOut="javascript:sbb_addthis_close();" onclick="javascript:return sbb_addthis_sendto();"><img src="http://www.shibabang.com/media/images/bookmark-btn/1.gif" border=0 alt="分享"></a>
+<script language="javascript" src="http://www.shibabang.com/media/js/addthis_widget.js"></script>
+<!-- SHIBABANG SHARE END -->
+</span>
+				</div>
+				<br clear="all" />
+				<div class="book_desription">{{comics.description|safe}}</div>
+			</div>
+			<div class="book_chapter">
+			{% for item in chapters %}
+				<a href="{{item.get_absolute_url}}" target="_blank">{{item.title}}</a>
+			{% endfor %}
+			</div>
+		</div>
+		<br clear="all" />
+		<div class="book_comment">
+			<div class="comment_form">
+				<div class="comment_form_title"><span class="t">漫漫评</span><span class="c">{{comment_count}}条漫评</span></div>
+				<form action="/comment/add/" method="post" name="comment_form" id="comment_form">
+					<input type="hidden" name="type" value="comic" />
+					<input type="hidden" name="typeid" value="{{comics.pk}}" />
+					<input type="hidden" name="ref" value="{{comics.get_absolute_url}}" />
+					<textarea name="content" class="comment_content"></textarea>
+					<div class="comment_button">
+						您的称呼：<input type="text" name="nickname" class="comment_text" value="Guest" /><input type="submit" class="comment_submit" value="发表" />
+					</div>
+				</form>
+				<div class="pagelimit"></div>
+			</div>
+			<div class="comment_list">
+				{% for item in comments %}
+				<div class="comment_item">
+					<a name="comment_{{item.pk}}"></a>
+					<div class="comment_o">{{item.nickname}} - {{item.adddate}}</div>
+					<div class="comment_s">{{item.content}}</div>
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+    </div>
+{% endblock %}

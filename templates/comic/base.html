@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="google-site-verification" content="ZSGK6JtTnNUfoPErsezlFqc7LDBrb4LfLtshepEc7ic" />
+	<meta name="keywords" content="{% block keywords %}漫画,动画,在线漫画,在线动画,火影忍者,海贼王,死神{% endblock %}" />
+	<meta name="description" content="{% block description %}漫漫翻是新兴的在线动漫社区，社区提供各种漫画和动画的在线预览，实时更新。社区专注于为动漫爱好者提供一流的阅读体验，在这里您可以于其他相同兴趣的朋友进行快乐的交流和互动。{% endblock %}" />
+    <title>{% block title %}看漫画上漫漫翻-看动画上漫漫翻-动画-漫画-分享-在线动漫社区{% endblock %}</title>
+    <link href="/media/css/comic/global.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+	<div class="back">
+	<div class="head">
+        <div class="top"><img src="/media/img/comic_page/logo.png" />
+		<span>测试版刚刚上线，功能还在不断完善，如果碰到任何页面无法浏览或者错误之类的，清联系QQ：815211657</span>
+		</div>
+        <div class="nav">
+        	<div class="nav1"></div>
+            <div class="nav2">
+            	<div class="category"><span><a href="/">首页</a></span><span><a href="/word/A_1/">字母搜索</a></span><span><a href="/author/">作者搜索</a></span><span><a href="/category/9_1/">少女爱情</a></span><span><a href="/category/2_1/">魔幻神话</a></span><span><a href="/category/5_1/">搞笑格斗</a></span><span><a href="/category/11_1/">恐怖悬疑</a></span></div>
+                <div class="search"><form action="/search/" method="get" name="form_search"><input type="text" class="index_search_input" name="keyword" value="漫漫搜" /> <input type="submit" class="index_search_button" value="" /></form></div>
+            </div>
+            <div class="nav3"></div>
+        </div>
+        <div class="ad1">
+        </div>
+	</div>
+	{% block content %}
+	
+	{% endblock %}
+	<div class="foot">
+		<div class="foot_link">{% for item in links%}<a href="{{item.url}}" target="_blank">{{item.title}}</a>&nbsp;&nbsp;{% endfor %}</div>
+    	<span class="colorr">本站漫画来自互联网，仅供在线浏览，以及漫画爱好者研究画法技巧和构图方式。不提供下载。若爱不释手，请支持购买正版！</span>
+        © 2008-2009 Manmanfan.com.京ICP备09108185号 
+    </div>
+	<script type="text/javascript" src="http://js.tongji.linezing.com/852592/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/852592/tongji.gif"/></a></noscript>
+	<script src="http://s88.cnzz.com/stat.php?id=1812556&web_id=1812556" language="JavaScript" charset="gb2312"></script>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-8071317-3");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</div>
+</body>
+</html>

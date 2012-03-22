@@ -1,0 +1,19 @@
+{% extends "member/base_login.html" %}
+{% block title %} 用户登陆-漫漫翻-在线动漫社区 {% endblock %}
+{% block content %}
+	<div class="login_nav">
+    </div>
+    <div class="main_login">
+		<div class="main_login_left">
+        	<form action="/login/" method="post" name="form_login" onsubmit="">
+            	<div>您的邮箱：<br /><input type="text" name="email" id="email" size="" /></div>
+                <div>您的密码：<br /><input type="password" name="password" id="password" size="" /></div>
+                <div><input type="submit" value="进入我的漫漫翻" /></div>
+            </form>
+        </div>
+        <div class="main_login_right">
+        	
+        </div>
+        
+    </div>
+{% endblock %}

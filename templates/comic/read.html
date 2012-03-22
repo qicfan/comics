@@ -1,0 +1,30 @@
+{% extends "comic/base_read.html" %}
+{% block title %} {{chapters.title}}第{{pics.title}}画-{{chapters.title}}-{{comics.title}}-漫漫翻-在线动漫社区 {% endblock %}
+{% block keywords %} {{comics.title}},{{comics.author}},{{chapters.title}} {% endblock%}
+{% block description %} 漫画名称：{{comics.title}} 作者：{{comics.author}} 章节名称：{{chapters.title}}第{{pics.title}}画 本章共{{piccount}}画{% endblock%}
+{% block content %}
+    <div class="main_read">
+    	<div class="main_nav_read">您的当前位置：<a href="/">漫漫翻</a> - <a href="{{comics.get_absolute_url}}">《{{comics.title}}》</a> - <a href="{{chapters.get_absolute_url}}">{{chapters.title}}</a></div>
+        <div class="pagenav">
+            <div class="page_limit">
+				<div class="chapter_pre">{%ifequal None chapter_next.id%}{%else%}<a href="{{chapter_next.get_absolute_url}}">上一回：{{chapter_next.title}}</a>{%endifequal%}</div>
+				<div class="page_pre">{%ifequal page page_pre%}{%else%}<a href="/display/{{chapters.pk}}/?p={{page_pre}}">上一页</a>{%endifequal%}</div>
+				<div class="page_tiao">跳转到：<input type="text" class="page_num" name="page_num" value="{{page}}" /> <input type="button" value="GO" /></div>
+				<div class="page_next">{%ifequal page page_next%}{%else%}<a href="/display/{{chapters.pk}}/?p={{page_next}}">下一页</a>{%endifequal%}</div>
+				<div class="chapter_next">{%ifequal None chapter_pre.id%}{%else%}<a href="{{chapter_pre.get_absolute_url}}">下一回：{{chapter_pre.title}}</a>{%endifequal%}</div>
+            </div>
+        </div>
+    </div>
+    <div class="pic_read"><a href="/display/{{chapters.pk}}/?p={{page_next}}" title="显示下一页"><img src="/media/{{pics.photo}}" alt="{{comics.title}}{{chapters.title}}第{{pics.title}}画" /></a></div>
+	<div id="nextpagecontent" style="display:none; width:0px; height:0px;"></div>
+	<script type="text/javascript">
+		function getPageNext() {
+			$.get("/display_ajax/{{chapters.pk}}/",{p:{{page_next}}}, pageView);
+		}
+		function pageView(data) {
+			$('#nextpagecontent').html(data);
+		}
+		getPageNext();
+		//setTimeout('getPageNext()', 1000);
+	</script>
+{% endblock %}

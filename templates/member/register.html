@@ -1,0 +1,80 @@
+{% extends "member/base_login.html" %}
+{% block title %}用户注册{% endblock %}
+{% block content %}
+	<div class="login_nav"></div>
+	<div class="main_login">
+		<div class="main_login_left">
+			<form action="/register/" method="post" name="form_reg" id="form_reg">
+				<div>你的Email地址:：<br /><input type="text" name="email" id="email" needvalidate="true" size="20" value="aaa" /><span id="email_text"></span></div>
+				<div>您的密码：<br /><input type="password" name="password" id="password" needvalidate="true" size="20" /><span id="password_text"></span></div>
+				<div>您的名字：<br /><input type="text" name="nickname" id="nickname" needvalidate="true" size="20" /><span id="nickname_text"></span></div>
+				<div><input type="button" id="sub_btn" value="注册" onclick="return validate()" /></div>
+			</form>
+                        <div id="result_box"></div>
+	    	</div>
+		<div class="main_login_right"></div>        
+	</div>
+<script type="text/javascript">
+    var email_check = false;
+    $('input[needvalidate=true]').blur(function(){
+        if(requireField(this)){
+            if (this.id == 'email') {
+                $.get("/register/check_email_ajax/",{email:this.value, math: Math.random()}, processValidateEmail);
+            } else {
+                $('#' + this.id + '_text').html('<img src="http://localhost/accept.gif" />')
+            }
+        }
+    });
+    
+    function requireField(o) {
+        var email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var password = /^(.){6,12}$/;
+        var nickname = /^(\w){4,20}|[^u4e00-u9fa5]{2,20}$/;;
+        var email_error = '请输入正确的邮箱格式！';
+        var password_error = '请输入您的密码，6-12位字符！';
+        var nickname_error = '请输入您的名字，不少于4个字符！';
+        if (o.value.match(eval(o.id))) {
+            return true;
+        } else {
+            $('#'+o.id+'_text').html('<img src="http://localhost/exclamation.gif" />' + eval(o.id+'_error')).attr("style","color:red;");
+            return false;
+        }
+    }
+    
+    function processValidateEmail(data) {
+        eval(data);
+        if (result.status == 1) {
+            $('#email_text').html('<img src="http://localhost/accept.gif" />');
+        } else {
+            $('#email_text').html('<img src="http://localhost/exclamation.gif" />' + result.msg);
+        }
+    }
+    
+    function validate() {
+        var checked = true;
+        $('input[needvalidate=true]').each(function(i){
+            if (!requireField(this)) {
+                checked = false;
+            }
+        });
+        if (checked) {
+            // 验证成功，锁定提交按钮，并且提交表单
+            //$('#sub_btn').attr('disabled', 'false');
+            $.post('/register/', {email: $('#email').attr("value"), password: $('#password').attr("value"), nickname: $('#nickname').attr("value")},
+                function(data) {
+                    eval(data);
+                    if (result.status) {
+                        window.location = result.next;
+                    } else {
+                        alert(result.msg);
+                        $('#sub_btn').attr('disabled', 'true');
+                        return false;
+                    }
+                });
+        } else {
+            alert('请仔细填写你的注册信息后，点击提交!');
+            return false;
+        }
+    }
+</script>
+{% endblock %}

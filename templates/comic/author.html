@@ -1,0 +1,17 @@
+{% extends "comic/base.html" %}
+{% block title %} 作者列表-漫漫翻-在线动漫社区 {% endblock %}
+{% block content %}
+    <div class="main">
+    	<div class="main_nav">您的当前位置：<a href="/">漫漫翻</a> - <a href="/author/">作者</a></div>
+        <div class="author_box">
+
+			<div class="author_word"><span>作者列表</span></div>
+            <div class="author_list">
+				{% for author in authors %}
+					<span><a href="/author/{{author.title}}_1/" class="colorhui">{{author.title}}</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+				{% endfor %}
+            </div>
+
+        </div>
+	</div>
+{% endblock %}
